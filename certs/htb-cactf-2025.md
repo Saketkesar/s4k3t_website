@@ -10,7 +10,7 @@ status: Completed
 **Year**: 2025  
 **Status**: Completed  
 
-![Cyber Apocalypse CTF 2025 Certificate](images/HTB/cactf2025.jpg "Cyber Apocalypse CTF 2025 Certificate - Hack The Box")  
+![Cyber Apocalypse CTF 2025 Certificate](/images/HTB/cactf2025.jpg "Cyber Apocalypse CTF 2025 Certificate - Hack The Box")  
 
 ## About This CTF  
 Cyber Apocalypse CTF 2025, themed **Tales from Eldoria**, was one of the biggest Jeopardy-style Capture the Flag competitions organized by Hack The Box.  

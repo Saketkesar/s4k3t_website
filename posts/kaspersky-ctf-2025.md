@@ -4,7 +4,7 @@ date: 2025-08-23
 excerpt: Exciting news – Our CTF team has been officially invited and confirmed to participate in the upcoming Kaspersky CTF. This competition will challenge us with advanced cybersecurity problems.
 ---
 
-![Kaspersky CTF 2025 Banner](public/images/images/kctf.png)
+![Kaspersky CTF 2025 Banner](/images/kctf.png)
 
 # 🎯 Our Team is Playing Kaspersky CTF 2025  
 
@@ -15,7 +15,7 @@ This competition is known for its **challenging problems and global participatio
 
 ## 📩 Official Confirmation  
 
-![Kaspersky CTF 2025 Registration Confirmation Email](public/images/images/ksprskyemail.png)
+![Kaspersky CTF 2025 Registration Confirmation Email](/images/ksprskyemail.png)
 
 We’ve successfully completed the registration process, and our spot in the competition is **locked in**.  
 Now it’s time to **prepare, practice, and explore new problem domains** that Kaspersky CTF is famous for.  

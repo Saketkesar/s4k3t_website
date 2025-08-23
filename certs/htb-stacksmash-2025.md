@@ -10,7 +10,7 @@ status: Completed
 **Year**: 2025  
 **Status**: Completed  
 
-![StackSmash CTF 2025 Certificate](images/HTB/stacksmash.jpg "StackSmash CTF 2025 Certificate - Hack The Box")  
+![StackSmash CTF 2025 Certificate](/images/HTB/stacksmash.jpg "StackSmash CTF 2025 Certificate - Hack The Box")  
 
 ## About This CTF  
 StackSmash CTF 2025, powered by Hack The Box, was a focused jeopardy-style competition with tough binary and systems-level challenges.  
