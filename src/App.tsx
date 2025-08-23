@@ -161,8 +161,6 @@ function App() {
       
       <Footer />
   <CustomCursor />
-  {/* global social click audio */}
-  <audio id="social-click-audio" src="/sounds/click.mp3" />
     </div>
   );
 }

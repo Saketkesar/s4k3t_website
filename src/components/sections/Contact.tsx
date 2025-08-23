@@ -2,16 +2,11 @@ import { FaCoffee } from 'react-icons/fa';
 import { FiInstagram, FiGithub, FiMail, FiYoutube } from 'react-icons/fi';
 import { SiDiscord } from 'react-icons/si';
 import { useRef } from 'react';
+import playClickSound from '../../utils/sound';
 
 export function Contact() {
   const playClick = () => {
-    try {
-      const a = document.getElementById('social-click-audio') as HTMLAudioElement | null;
-      if (a) {
-        a.currentTime = 0;
-        a.play().catch(() => {});
-      }
-    } catch (err) {}
+    playClickSound();
   };
 
   return (

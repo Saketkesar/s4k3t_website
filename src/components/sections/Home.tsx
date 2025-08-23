@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import playClickSound from '../../utils/sound';
 import { useMarkdownContent } from '../../hooks/useMarkdownContent';
 import { FiInstagram, FiGithub, FiMail, FiAward, FiYoutube } from 'react-icons/fi';
 import { SiDiscord } from 'react-icons/si';
@@ -10,13 +11,7 @@ interface HomeProps {
 export function Home({ onSelectBlog }: HomeProps) {
   const { blogs } = useMarkdownContent();
   const playClick = useCallback(() => {
-    try {
-      const a = document.getElementById('social-click-audio') as HTMLAudioElement | null;
-      if (a) {
-        a.currentTime = 0;
-        a.play().catch(() => {});
-      }
-    } catch (err) {}
+    playClickSound();
   }, []);
   
   const featuredPosts = blogs.slice(0, 2);
