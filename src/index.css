@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f5f5f5;
+  /* Custom default cursor (small, centered hotspot) */
+  cursor: url('/custom_cursor/Nonhover.png') 8 8, auto;
+  }
+
+  /* Custom prose styles for markdown */
+  .prose {
+    max-width: none;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-gray-800 font-mono font-bold;
+  }
+  
+  .prose p {
+    @apply text-gray-700 leading-relaxed font-mono text-sm;
+  }
+  
+  .prose ul, .prose ol {
+    @apply text-gray-700 font-mono text-sm;
+  }
+  
+  .prose li {
+    @apply my-1;
+  }
+  
+  .prose strong {
+    @apply text-gray-800 font-semibold;
+  }
+  
+  .prose code {
+    @apply bg-gray-200 text-gray-800 px-1 py-0.5 text-xs font-mono border border-gray-300;
+  }
+  
+  .prose pre {
+    @apply bg-gray-200 border border-gray-300 font-mono text-sm;
+  }
+  
+  .prose blockquote {
+    @apply border-l-2 border-gray-400 bg-gray-100 text-gray-700 font-mono text-sm;
+  }
+
+  /* Make links inside rendered markdown stand out (blue, underlined) */
+  .prose a {
+    color: #1e40af; /* Tailwind blue-800 */
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Responsive, constrained images inside markdown content */
+  .prose img {
+    display: block;
+    margin: 0.75rem auto;
+    width: min(100%, 640px); /* scale down on small viewports, cap on large */
+    height: auto;           /* preserve aspect ratio */
+    max-height: 480px;      /* avoid extremely tall images */
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* Make images in prose clickable but not overflow their container */
+  .prose a img {
+    width: min(100%, 640px);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom cursor rules for interactive elements */
+/* Use hover.png for interactive elements and keep a pointer fallback */
+a, button, input, textarea, select, label, summary, [role="button"], .clickable {
+  cursor: url('/custom_cursor/hover.png') 8 8, pointer;
+}
+
+/* Ensure hover cursor is used on :hover for elements that change state */
+a:hover, button:hover, .clickable:hover, [role="button"]:hover {
+  cursor: url('/custom_cursor/hover.png') 8 8, pointer;
+}
+
+/* Fallback for touch devices and coarse pointers where custom cursors are not appropriate */
+@media (hover: none), (pointer: coarse) {
+  body, a, button, input, textarea, select, label, summary, [role="button"], .clickable {
+    cursor: auto;
+  }
+}
+
+/* Hide the native cursor on pointer-capable devices so our custom cursor is visible */
+@media (pointer: fine) and (hover: hover) {
+  /* Hide the native cursor everywhere on pointer-capable devices so our custom cursor is the only visible pointer. */
+  body, body * {
+    cursor: none !important;
+  }
+}
