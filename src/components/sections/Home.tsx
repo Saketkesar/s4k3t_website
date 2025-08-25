@@ -29,12 +29,12 @@ export function Home({ onSelectBlog }: HomeProps) {
         </div>
         
         <div>
-          <h1 className="text-2xl font-mono font-bold text-gray-800">Saket Kesar</h1>
-          <p className="text-gray-600 font-mono text-sm">aka Stablersleet</p>
-          <p className="text-gray-500 font-mono text-xs mt-1">Team Lead <a href="https://ctftime.org/team/376652" target="_blank" rel="noreferrer" className="underline decoration-dotted">N0C715</a></p>
+          <h1 className="text-2xl font-mono font-bold text-gray-800 dark:text-slate-100">Saket Kesar</h1>
+          <p className="text-gray-600 font-mono text-sm dark:text-slate-300">aka Stablersleet</p>
+          <p className="text-gray-500 font-mono text-xs mt-1 dark:text-slate-300">Team Lead <a href="https://ctftime.org/team/376652" target="_blank" rel="noreferrer" className="underline decoration-dotted">N0C715</a></p>
         </div>
         
-        <div className="max-w-md mx-auto text-gray-700 font-mono text-sm leading-relaxed">
+  <div className="max-w-md mx-auto text-gray-700 font-mono text-sm leading-relaxed dark:text-slate-200">
           <p>Beginner in cybersecurity, and I always want to remain a beginner to keep learning in this endless ocean of knowledge</p>
 
           <div className="flex items-center justify-center space-x-4 mt-4 text-gray-500">
@@ -50,25 +50,25 @@ export function Home({ onSelectBlog }: HomeProps) {
 
       
       <div className="space-y-4">
-        <h2 className="text-lg font-mono font-bold text-gray-800">Featured</h2>
+  <h2 className="text-lg font-mono font-bold text-gray-800 dark:text-slate-100">Featured</h2>
         
         <div className="space-y-4">
           {featuredPosts.map((post) => (
-            <div
+        <div
               key={post.id}
               onClick={() => onSelectBlog && onSelectBlog(post)}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => { if (e.key === 'Enter') onSelectBlog && onSelectBlog(post); }}
-              className="border border-gray-300 p-4 bg-white cursor-pointer hover:border-gray-400 transition-colors clickable"
+          className="border border-gray-300 p-4 bg-white cursor-pointer hover:border-gray-400 transition-colors clickable dark:card-border dark:card-bg dark:hover:border-slate-600"
             >
-              <h3 className="font-mono text-sm font-bold text-gray-800 uppercase tracking-wide">
+              <h3 className="font-mono text-sm font-bold text-gray-800 dark:text-slate-100 uppercase tracking-wide">
                 {post.title}
               </h3>
-              <p className="text-gray-500 text-xs font-mono mt-1">
+              <p className="text-gray-500 text-xs font-mono mt-1 dark:text-slate-300">
                 📅 {post.date ? new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : ''}
               </p>
-              <p className="text-gray-700 text-sm mt-2 leading-relaxed font-mono">
+              <p className="text-gray-700 text-sm mt-2 leading-relaxed font-mono dark:text-slate-200">
                 {post.excerpt}
               </p>
             </div>

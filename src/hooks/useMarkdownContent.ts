@@ -15,7 +15,7 @@ export function useMarkdownContent() {
       try {
         const { posts, resources: resourceFiles, certs } = await loadAllContent();
         
-        
+        // Convert to proper types
         const processedBlogs: BlogPost[] = posts.map((post: MarkdownFile) => ({
           id: post.id,
           title: post.title,
@@ -54,7 +54,8 @@ export function useMarkdownContent() {
 
     fetchContent();
 
-  const interval = setInterval(fetchContent, 10000);
+    // Auto-refresh every 10 seconds to check for new markdown files
+    const interval = setInterval(fetchContent, 10000);
     
     return () => clearInterval(interval);
   }, []);

@@ -62,36 +62,36 @@ export function SearchModal({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center pt-20">
-      <div className="bg-white border border-gray-300 w-full max-w-lg mx-4 shadow-lg">
-        <div className="flex items-center border-b border-gray-200 p-3">
-          <Search size={16} className="text-gray-400 mr-2" />
+  <div className="bg-white border border-gray-300 w-full max-w-lg mx-4 shadow-lg dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200">
+        <div className="flex items-center border-b border-gray-200 p-3 dark:border-slate-700">
+          <Search size={16} className="text-gray-400 mr-2 dark:text-slate-300" />
           <input
             type="text"
             placeholder="Search posts and resources..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 outline-none text-sm font-mono"
+            className="flex-1 outline-none text-sm font-mono dark:text-slate-100"
             autoFocus
           />
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 dark:text-slate-300 dark:hover:text-slate-100">
             <X size={16} />
           </button>
         </div>
         
         <div className="max-h-96 overflow-y-auto">
           {query && (
-            <div className="p-3 space-y-3">
+            <div className="p-3 space-y-3 dark:text-slate-200">
               {filteredBlogs.length > 0 && (
                 <div>
-                  <h3 className="text-xs font-mono font-bold text-gray-500 uppercase mb-2">Posts</h3>
+                  <h3 className="text-xs font-mono font-bold text-gray-500 dark:text-slate-300 uppercase mb-2">Posts</h3>
                   {filteredBlogs.map(blog => (
                     <button
                       key={blog.id}
                       onClick={() => handleSelectBlog(blog)}
-                      className="w-full text-left p-2 hover:bg-gray-50 border border-transparent hover:border-gray-200"
+                      className="w-full text-left p-2 hover:bg-gray-50 dark:hover:bg-slate-700 border border-transparent hover:border-gray-200 dark:hover:border-slate-600"
                     >
-                      <div className="text-sm font-mono font-semibold text-gray-800">{blog.title}</div>
-                      <div className="text-xs text-gray-500 font-mono">{blog.excerpt}</div>
+                      <div className="text-sm font-mono font-semibold text-gray-800 dark:text-slate-100">{blog.title}</div>
+                      <div className="text-xs text-gray-500 dark:text-slate-300 font-mono">{blog.excerpt}</div>
                     </button>
                   ))}
                 </div>
@@ -99,15 +99,15 @@ export function SearchModal({
               
               {filteredResources.length > 0 && (
                 <div>
-                  <h3 className="text-xs font-mono font-bold text-gray-500 uppercase mb-2">Resources</h3>
+          <h3 className="text-xs font-mono font-bold text-gray-500 dark:text-slate-300 uppercase mb-2">Resources</h3>
                   {filteredResources.map(resource => (
                     <button
                       key={resource.id}
                       onClick={() => handleSelectResource(resource)}
-                      className="w-full text-left p-2 hover:bg-gray-50 border border-transparent hover:border-gray-200"
+            className="w-full text-left p-2 hover:bg-gray-50 dark:hover:bg-slate-700 border border-transparent hover:border-gray-200 dark:hover:border-slate-600"
                     >
-                      <div className="text-sm font-mono font-semibold text-gray-800">{resource.title}</div>
-                      <div className="text-xs text-gray-500 font-mono">{resource.description}</div>
+            <div className="text-sm font-mono font-semibold text-gray-800 dark:text-slate-100">{resource.title}</div>
+            <div className="text-xs text-gray-500 dark:text-slate-300 font-mono">{resource.description}</div>
                     </button>
                   ))}
                 </div>

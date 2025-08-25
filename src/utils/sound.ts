@@ -18,3 +18,21 @@ export function playClickSound() {
 }
 
 export default playClickSound;
+
+let transformAudio: HTMLAudioElement | null = null;
+
+export function playTransformSound() {
+  try {
+    if (!transformAudio) {
+      transformAudio = new Audio('/sounds/transform.mp3');
+      transformAudio.preload = 'auto';
+      transformAudio.volume = 0.8;
+      (transformAudio as any).playsInline = true;
+    }
+    transformAudio.currentTime = 0;
+    const p = transformAudio.play();
+    if (p && typeof p.then === 'function') p.catch(() => {});
+  } catch (err) {
+    // swallow errors
+  }
+}

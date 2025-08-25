@@ -8,10 +8,33 @@ import { Blogs } from './components/sections/Blogs';
 import { Resources } from './components/sections/Resources';
 import { Certificates } from './components/sections/Certificates';
 import { Contact } from './components/sections/Contact';
+import { About } from './components/sections/About';
 import { useMarkdownContent } from './hooks/useMarkdownContent';
 import { BlogPost, Resource } from './types';
 
 function App() {
+  // Theme: 'light' | 'dark' stored in localStorage under 'theme'
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    try {
+      const t = localStorage.getItem('theme');
+      return t === 'dark' ? 'dark' : 'light';
+    } catch (e) {
+      return 'light';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      localStorage.setItem('theme', theme);
+    } catch (e) {
+      // ignore storage errors
+    }
+  }, [theme]);
   const [activeSection, setActiveSection] = useState('home');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
@@ -88,6 +111,8 @@ function App() {
     switch (activeSection) {
       case 'home':
         return <Home onSelectBlog={handleSelectBlog} />;
+      case 'about':
+        return <About />;
       case 'blogs':
         return <Blogs selectedBlog={selectedBlog} onSelectBlog={handleSelectBlog} />;
       case 'resources':
@@ -136,11 +161,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+  <div className="min-h-screen bg-gray-100 dark:bg-slate-950">
       <Navbar
         activeSection={activeSection}
-        onSectionChange={handleSectionChange}
-        onSearchOpen={() => setIsSearchOpen(true)}
+    onSectionChange={handleSectionChange}
+    onSearchOpen={() => setIsSearchOpen(true)}
+    theme={theme}
+    onThemeChange={(t: 'light' | 'dark') => setTheme(t)}
       />
       
       <main className="relative">

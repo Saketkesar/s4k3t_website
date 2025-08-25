@@ -78,6 +78,71 @@
   }
 }
 
+/* Dark mode base overrides */
+@layer base {
+  .dark body {
+    background-color: #0b1220; /* slightly darker deep navy for better contrast */
+    color: #e6eef8; /* brighter body text */
+  }
+
+  /* Adjust prose for dark with stronger contrast */
+  .dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4, .dark .prose h5, .dark .prose h6 {
+    @apply text-slate-100;
+  }
+
+  .dark .prose p, .dark .prose li, .dark .prose ul, .dark .prose ol {
+  @apply text-slate-100;
+  }
+
+  .dark .prose code {
+    @apply bg-slate-800 text-slate-100 border-slate-700;
+  }
+
+  .dark .prose pre {
+    @apply bg-slate-800 border-slate-700 text-slate-100;
+  }
+
+  .dark .prose blockquote {
+    @apply border-l-2 border-slate-600 bg-slate-900 text-slate-200;
+  }
+
+  .dark .prose a {
+    color: #7dd3fc; /* brighter sky-300 */
+  }
+
+  /* Utility: brighter card text in dark mode when using plain bg/border utilities */
+  .dark .card-bg {
+    background-color: #0f1724; /* card background slightly lighter than page */
+    color: #e6eef8;
+  }
+
+  .dark .card-border {
+    border-color: #233041;
+  }
+
+  /* Ensure all elements inside rendered markdown are readable in dark mode.
+     Some markdown can include inline tags or elements not covered by the
+     explicit selectors above; use a broader selector with slightly higher
+     specificity so text remains visible. This intentionally targets only
+     content inside .prose under .dark so it doesn't affect light mode. */
+  .dark .prose,
+  .dark .prose * {
+    color: #e6eef8 !important;
+  }
+
+  /* Slightly reduce emphasis on meta/secondary text but keep readable */
+  .dark .prose .muted,
+  .dark .prose small,
+  .dark .prose .meta {
+    color: #cbd5e1 !important; /* slate-300-ish */
+  }
+
+  /* Dark mode cursor fallbacks: keep custom cursor images but ensure visibility */
+  .dark a, .dark button, .dark .clickable {
+    cursor: url('/custom_cursor/hover.png') 8 8, pointer;
+  }
+}
+
 /* Custom cursor rules for interactive elements */
 /* Use hover.png for interactive elements and keep a pointer fallback */
 a, button, input, textarea, select, label, summary, [role="button"], .clickable {
